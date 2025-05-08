@@ -1,0 +1,10 @@
+{
+	"name" : "srinath",
+	"age" : "10",
+	"addres" : "xxx,dddd",
+	"applicant" : {
+		"ipaddress" : "127.30.20",
+		"phonenumber" : "222222",
+		"emailaddres" : "abc@12.com"
+	}
+}
