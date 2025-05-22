@@ -20,6 +20,7 @@ public class SetExample {
 		}
 		System.out.println("After removed the first character");
 		
+		setStr.forEach(e -> System.out.println(e));
 	}
 
 }

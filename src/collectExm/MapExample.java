@@ -24,6 +24,21 @@ public class MapExample {
 			System.out.println("found vehicles "+vehicles.get("BMW"));
 		}
 		
+		System.out.println("Using java 8");
+		
+		vehicles.forEach((k,v) -> System.out.println(k +" = "+v));
+		
+		System.out.println("Keyset");
+		vehicles.keySet().forEach(k -> System.out.println(k +": "+vehicles.get(k)));
+		
+		
+		System.out.println("Using streams");
+		
+		vehicles.entrySet().stream()
+							.forEach(e -> System.out.println(e.getKey() +"="+e.getValue()));
+		
+		
+		
 	}
 
 }

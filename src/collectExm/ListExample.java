@@ -32,6 +32,11 @@ public class ListExample {
 			i ++;
 		}
 		
+		System.out.println("In java8 ");
+		strList.forEach(e -> System.out.println(e));
+		
+		
+		
 		if(strList.contains("Printer")) {
 			System.out.println("Yes list contains printer");
 		}

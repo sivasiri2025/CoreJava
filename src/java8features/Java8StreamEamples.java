@@ -1,5 +1,6 @@
 package java8features;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,16 +39,46 @@ public class Java8StreamEamples {
 		System.out.println("length of 3 count"+ leng3);
 		
 		String mergedString8  = strings.stream()
-				.filter(str -> !str.isEmpty()) //abc
-				.collect(Collectors.joining("|"));//abc|bc|efg|abcd
+										.filter(str -> !str.isEmpty()) //abc
+										.collect(Collectors.joining("|"));//abc|bc|efg|abcd
 		
 		System.out.println("mergedString using java8="+ mergedString8);
 		
 		List<String> strList = strings.stream()
-				.filter(e -> ! e.isEmpty())
-				.collect(Collectors.toList());//abc, 
+										.filter(e -> ! e.isEmpty())
+										.collect(Collectors.toList());//abc, 
 		
 		System.out.println("strList java8 wihout empty strings "+ strList);
+		
+		List<Integer> numbers = Arrays.asList(10,10, 20, 5, 4);
+		
+		System.out.println("numbers="+numbers);
+		
+		List<Integer> squaresJava7 = getSquares(numbers);
+		
+		System.out.println("numbers squares="+squaresJava7);
+		
+		List<Integer> squaresJava8 = numbers.stream()
+											.map(i -> i*i)
+											.distinct()
+											.collect(Collectors.toList());
+		System.out.println("squaresJava8="+squaresJava8);
+	}
+	
+	
+	public static List<Integer> getSquares(List<Integer> list) {//10,10, 20, 5, 4
+		List<Integer> result = new ArrayList<>();
+		
+		for(Integer eachVal : list) {
+			Integer square = eachVal * eachVal; //100
+			
+			if(!result.contains(square)) {
+				result.add(square);
+			}
+		}
+		
+		return result;
+		
 	}
 	
 	public static long getCountEmptyStringUsingJava7(List<String> value) {//"abc", "", "bc", "efg", "", "abcd"
